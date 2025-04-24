@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+makeit()
+{
+	local MAKEFILE_DIR=~/SCRIPTS
+	cp ${MAKEFILE_DIR}/Makefile .
+	printf "*.swp\n" > .gitignore
+}
+
+start()
+{
+	mkdir scripts tests to_do txt logs mandotory bonus sources
+	makeit
+} 
+
+start

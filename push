@@ -1,0 +1,29 @@
+#!/bin/bash
+
+#add to the stage
+git add . 2> /dev/null
+
+if [[ $? -ne 0 ]]
+then
+	echo -e "\e[35merror\e[00m"
+	exit
+fi
+
+answer="just some reset"
+
+until [[ "${answer,,}" == @(yes|y|1|positive) || -z "${answer}" ]]
+do
+	if [[ ! -z $1 ]]
+	then
+		commit="$1"
+		break
+	fi
+	echo -ne "\e[35myour commit please: \e[00m\e[32m"
+	read commit
+	echo -e "\e[00m"
+	echo -ne "\n\e[30;44mare you sure?\e[00m \e[35myour commit: \e[00m \"${commit}\"\n\n\e[00;36m[YES/NO]: \e[32m"
+	read answer
+	echo -ne "\e[00m"
+done
+git commit -m "${commit}"
+git push

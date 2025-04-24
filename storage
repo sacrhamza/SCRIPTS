@@ -1,0 +1,28 @@
+#!/bin/bash
+
+size()
+{
+	/bin/ls -a | while read file
+	do
+		du -sh "$file"
+	done 2> /dev/null | sort -rh | fzf
+}
+
+storage()
+{
+	local dir
+
+	dir=$(size | awk '{printf $2}')
+	if [[ -d "$dir" ]]
+	then
+		cd "$dir"
+		storage
+	fi
+}
+
+if ! which fzf 1> /dev/null
+then
+	storage
+else
+	printf "fzf not installed"
+fi
