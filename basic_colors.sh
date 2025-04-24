@@ -1,0 +1,7 @@
+BLACK="\e[0;30"
+RED="\e[0;31"
+GREEN="\e[0;32"
+BROWN="\e[0;33"
+BLUE="\e[0;34"
+PURPLE="\e[0;35"
+CYAN="\e[0;36"

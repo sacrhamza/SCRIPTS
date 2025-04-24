@@ -29,4 +29,6 @@ then
 		echo -e "\n\e[41m${SUBJECT[i]}\e[00m\n"
 		curl cheat.sh/${SUBJECT[i]}
 	done
+else
+	printf "error"
 fi
