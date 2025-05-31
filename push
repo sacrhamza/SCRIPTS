@@ -3,7 +3,7 @@
 #add to the stage
 git add . 2> /dev/null
 
-if [[ $? -ne 0 ]]
+if ! git add . 2> /dev/null;
 then
 	echo -e "\e[35merror\e[00m"
 	exit
@@ -13,7 +13,7 @@ answer="just some reset"
 
 until [[ "${answer,,}" == @(yes|y|1|positive) || -z "${answer}" ]]
 do
-	if [[ ! -z $1 ]]
+	if [[ -n $1 ]]
 	then
 		commit="$1"
 		break

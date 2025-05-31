@@ -1,0 +1,18 @@
+#!/bin/bash
+cd /home/hsacr/COMMON_CORE/42-minishell
+
+tmux new-session  -s mysession -n 'src/parser'\; \
+			 send 'cd src/parser; vim .' ENTER \; \
+			 split-window -h \; \
+			 send 'cd src/parser; vim .' ENTER \; \
+	     new-window -n "src/lexer" \; \
+			 send 'cd src/lexer; vim .' ENTER \; \
+	     split-window -h \; \
+			 send 'cd src/lexer; vim .' ENTER \; \
+	     new-window -n "header files" \; \
+			  send 'yazi include'  ENTER\; \
+	     new-window -n "Makefile" \; \
+			 send 'vim Makefile' ENTER\; \
+	     select-layout tiled \; \
+				new-window -n "tests" \;
+

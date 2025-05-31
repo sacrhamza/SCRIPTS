@@ -20,7 +20,7 @@ storage()
 	fi
 }
 
-if ! which fzf 1> /dev/null
+if  which fzf 1> /dev/null
 then
 	storage
 else

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+for i in "$@"
+do
+	functions=$(grep -r -E '^[a-zA-Z_][a-zA-Z0-9_]' "$i")
+	IFS=$'\n';for function in ${functions[@]}
+	do
+		printf "$function;\n"
+	done
+done
