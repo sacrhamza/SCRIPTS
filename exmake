@@ -1,0 +1,34 @@
+#!/usr/bin/make -rRf
+
+TARGET = EXE_FILE
+
+%.c: FORCE 
+	@ cc $@ -o $(TARGET) -lm && ./$(TARGET) && rm $(TARGET)
+
+
+%.py: FORCE
+	@ python3 $@
+
+
+%.cpp: FORCE
+	@ g++ $@ -o $(TARGET) && ./$(TARGET) && rm $(TARGET)	
+
+%.js: FORCE
+	@ nodejs $@
+
+%.sh: FORCE
+	@ $@
+
+%.out: FORCE
+	$@
+
+.%: FORCE
+	$@
+
+# you can use file command or something else to that
+# or emplement that using c or c++
+%.ppm %.png %.jpeg: FORCE
+	eog  "$@"
+
+.PHONY: FORCE
+ FORCE:;

@@ -11,7 +11,7 @@ then
 	then
 		bluetoothctl power on
 		bluetoothctl pair  "$MAC_ADDRESS"
-		bluetoothctl connect "$MAC_ADDRESS"
+		bluetoothctl connect "$MAC_ADDRES"
 	elif [[ "$1" == @(unpair|remove) ]]
 	then
 		if [[ "$1" == unpair ]]
@@ -20,7 +20,7 @@ then
 		else
 			bluetoothctl remove  "$MAC_ADDRESS"
 		fi
-		bluetoothctl power off
+		# bluetoothctl power off
 	else
 		throw_error
 	fi

@@ -2,6 +2,6 @@
 
 if [[ $# -eq 1 ]]
 then
-	mkdir "$i"
-	cd "$i"
+	echo $1
+	mkdir "$1" && cd "$1"
 fi
