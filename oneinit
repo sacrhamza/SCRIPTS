@@ -4,9 +4,10 @@ export CWD=/tmp/myapps
 
 if [[ $# == 0 ]]
 then
-mkdir -p /tmp/myapps
+	echo ehy
+	mkdir -p /tmp/myapps
 
-one -i bat brave hyperfine telegram
+	one -i bat brave hyperfine telegram
 else
 one list	
 fi
