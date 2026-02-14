@@ -17,6 +17,7 @@ TARGET = EXE_FILE
 	@ nodejs $@
 
 %.sh: FORCE
+	@ chmod +x $@
 	@ $@
 
 %.out: FORCE
