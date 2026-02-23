@@ -26,6 +26,10 @@ TARGET = EXE_FILE
 .%: FORCE
 	$@
 
+%Dockerfile: FORCE
+	docker build -t somelongname . && docker run -it --rm somelongname  && docker rmi somelongname 
+
+
 # you can use file command or something else to that
 # or emplement that using c or c++
 %.ppm %.png %.jpeg: FORCE
