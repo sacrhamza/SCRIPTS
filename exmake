@@ -27,7 +27,7 @@ TARGET = EXE_FILE
 	$@
 
 %Dockerfile  Dockerfile% %dockerfile: FORCE
-	podman build -t somelongname -f $@ . && podman run -it --rm somelongname  && podman rmi somelongname 
+	docker build -t somelongname -f $@ . && docker run -it --rm somelongname && docker rmi somelongname 
 
 
 # you can use file command or something else to that
