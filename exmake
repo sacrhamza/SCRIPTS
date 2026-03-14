@@ -27,7 +27,7 @@ TARGET = EXE_FILE
 	$@
 
 %.go: FORCE
-	go build -o $(TARGET) $@ && ./$(TARGET) && rm -rf $(TARGET)
+	@ go build -o $(TARGET) $@ && ./$(TARGET) && rm -rf $(TARGET)
 
 %Dockerfile  Dockerfile% %dockerfile: FORCE
 	docker build -t somelongname -f $@ . && docker run -it --rm somelongname && docker rmi somelongname 
