@@ -1,4 +1,11 @@
 #!/bin/bash
 
 
-history | fzf | xclip -selection clipboard
+cmd=$(fzf < ~/.bash_history)
+
+read doit
+
+case "$doit" in
+	y|yes|1) bash -c "$cmd" ;;
+	h|history|2) xclip -selection clipboard <<< "$cmd" ;;
+esac

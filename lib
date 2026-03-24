@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+bin="$1"
+
+if [[ ! -e "$bin" ]]
+then
+	bin=$(which "$bin") || exit 1
+fi
+	
+
+liblist=($(ldd "$bin" | awk '{print $3}'))
+
+for lib in "${liblist[@]}"
+do
+	libname=$(basename "$lib")
+	printf "%s%45s\n" "$libname" "$lib"
+done
