@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+for file in "$@";
+do
+	touch ${file}.{cpp,hpp}
+done

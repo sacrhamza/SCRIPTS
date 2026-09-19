@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+for repo in "$@"
+do
+	git clone "https::/github.com/$repo"
+done

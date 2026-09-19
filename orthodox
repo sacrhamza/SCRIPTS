@@ -36,8 +36,7 @@ create_class_file()
 add_class_definition()
 {
   printf "\n#include <iostream>\n
-class ${class_name}
-{
+class ${class_name} {
   public:
     ${class_name}(void);
     ${class_name}(const ${class_name}& other);
@@ -49,24 +48,20 @@ class ${class_name}
 add_class_member_functions()
 {
   printf "#include <iostream>\n
-${class_name}::${class_name}(void)
-{
+${class_name}::${class_name}(void) {
   std::cout << \"${class_name} default constructor called\\\n\";
 }
 
-${class_name}::${class_name}(const ${class_name}& other)
-{
+${class_name}::${class_name}(const ${class_name}& other) {
   std::cout << \"${class_name} copy constructor called\\\n\";
 }
 
-${class_name}& ${class_name}::operator=(const ${class_name}& other)
-{
+${class_name}& ${class_name}::operator=(const ${class_name}& other) {
   std::cout << \"${class_name} copy assigment operator called\\\n\";
   return (*this);
 }
 
-${class_name}::~${class_name}(void)
-{
+${class_name}::~${class_name}(void) {
   std::cout << \"${class_name} destroctor called\\\n\";
 }
 " >> "${cpp_file}"

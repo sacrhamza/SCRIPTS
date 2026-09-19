@@ -4,6 +4,7 @@ TARGET = EXE_FILE
 
 %.c: FORCE 
 	@ cc $@ -o $(TARGET) -lm && ./$(TARGET) && rm $(TARGET)
+	@ valgrind ./$(TARGET)
 
 
 %.py: FORCE
@@ -11,7 +12,8 @@ TARGET = EXE_FILE
 
 
 %.cpp: FORCE
-	@ g++ $@ -o $(TARGET) && ./$(TARGET) && rm $(TARGET)	
+	@ g++ $@ -o $(TARGET) && ./$(TARGET)
+	@ rm ./$(TARGET)
 
 %.js %.mjs: FORCE
 	@ nodejs $@
@@ -39,6 +41,9 @@ TARGET = EXE_FILE
 # or emplement that using c or c++
 %.ppm %.png %.jpeg: FORCE
 	eog  "$@"
+
+%.php: FORCE
+	php  "$@"
 
 .PHONY: FORCE
  FORCE:;
