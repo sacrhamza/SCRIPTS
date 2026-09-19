@@ -13,7 +13,7 @@ TARGET = EXE_FILE
 %.cpp: FORCE
 	@ g++ $@ -o $(TARGET) && ./$(TARGET) && rm $(TARGET)	
 
-%.js: FORCE
+%.js %.mjs: FORCE
 	@ nodejs $@
 
 %.sh: FORCE
